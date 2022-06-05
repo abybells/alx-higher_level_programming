@@ -9,8 +9,7 @@
 
 // Include Python header files
 #include "patchlevel.h"
-#include "pyconfig.h"
-#include "pymacconfig.h"
+
 
 #if defined(__sgi) && !defined(_SGI_MP_SOURCE)
 #  define _SGI_MP_SOURCE
