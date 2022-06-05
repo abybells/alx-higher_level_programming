@@ -1,15 +1,22 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "lists.h"
-
 /**
- * main - check the code for ALX School students
- *
- * Return: Always 0.
+ * is_palindrome - checks if palindrome
+ * @head: head of node
+ * Return: 0 if not, 1 if is
  */
-int main(void)
+int is_palindrome(listint_t **head)
 {
-	listint_t **head;
+	unsigned int len = 1;
+	listint_t *temp;
 
+	if (head == NULL|| *head == NULL)
+		return (1);
+
+	temp = *head;
+	while (temp) /* get len of list */
+	{
+		temp = temp->next;
+		len++;
+	}
 	return (0);
 }
