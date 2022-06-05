@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-	listint_t *head;
+	listint_t **head;
 
 	return (0);
 }
