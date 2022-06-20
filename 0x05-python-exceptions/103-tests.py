@@ -39,7 +39,7 @@ print(l)
 lib.print_python_list(l);
 lib.print_python_float(l);
 lib.print_python_list(f);
-julien@ubuntu:~/CPython$ ./103-tests.py 
+julien@ubuntu:~/CPython$./103-tests.py 
 [.] bytes object info
   size: 5
   trying string: Hello
