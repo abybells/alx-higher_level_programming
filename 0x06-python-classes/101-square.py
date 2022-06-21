@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Defines a square based on 6-square.py
-"""
+"""Defines a square based on 6-square.py"""
 
 
 class Square:
