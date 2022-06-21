@@ -73,5 +73,5 @@ class SinglyLinkedList:
         while temp != None:
             list_values += str(temp.data)
             if temp.next_node != None:
-            temp = temp.next_node
-            return list_values
+                temp = temp.next_node
+                return list_values
