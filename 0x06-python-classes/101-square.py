@@ -35,7 +35,7 @@ class Square:
     @position.setter
     def position(self, value):
         """setter for position"""
-        if isinstance(value, tuple) and len(value) is 2 and\
+        if isinstance(value, tuple) and len(value) == 2 and\
            value[0] >= 0 and value[1] >= 0:
             self.__position = value
         else:
@@ -47,7 +47,7 @@ class Square:
 
     def my_print(self):
         """define my_print method, printing of a square"""
-        if self.__size is 0:
+        if self.__size == 0:
             print('')
         else:
             if self.__position[1] > 0:
@@ -67,7 +67,7 @@ class Square:
         when print(self) is called
         """
         pattern = ''
-        if self.__size is 0:
+        if self.__size == 0:
             return pattern
         else:
             if self.__position[1] > 0:
