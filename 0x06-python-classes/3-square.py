@@ -5,14 +5,13 @@
 class Square:
     """defines a square by size"""
     def __init__(self, __size=0):
-        """initialize the argument"""
-        self.__size = __size
-        if not isinstance(__size, int):
-            raise TypeError('size must be an integer')
+        if type(__size) is not int:
+            raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = size
 
-        if __size < o:
-            raise ValueError('size must be >= 0')
-            
-    """returns the area of a square"""
+    """Return area of Square object"""
     def area(self):
         return (self.__size * self.__size)
