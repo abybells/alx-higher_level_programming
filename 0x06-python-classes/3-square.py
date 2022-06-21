@@ -7,10 +7,10 @@ class Square:
     def __init__(self, __size=0):
         """initialize the argument"""
         self.__size = __size
-        if not isinstance(size, int):
+        if not isinstance(__size, int):
             raise TypeError('size must be an integer')
 
-        if size < o:
+        if __size < o:
             raise ValueError('size must be >= 0')
 
     def area(self):
