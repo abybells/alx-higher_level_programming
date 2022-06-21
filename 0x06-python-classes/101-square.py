@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Coordinates of a square
+Defines a square based on 6-square.py
 """
 
 
