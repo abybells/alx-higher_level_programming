@@ -68,7 +68,6 @@ class SinglyLinkedList:
 
     def __str__(self):
         """ define special __str__ method for printing list values when print(self is called"""
-        list_value = ''
         temp = self.__head
         while temp != None:
             list_values += str(temp.data)
