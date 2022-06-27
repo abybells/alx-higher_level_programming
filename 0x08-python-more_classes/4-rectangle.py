@@ -38,9 +38,9 @@ class Rectangle:
         if isinstance(value, int) and value >= 0:
             self.__height = value
         elif not isinstance(value, int):
-            raise TypeError("width must be an integer")
+            raise TypeError("height must be an integer")
         elif value < 0:
-            raise ValueError("width must be >= 0")
+            raise ValueError("height must be >= 0")
 
     def area(self):
         """define area method, evaluate rectangle area"""
@@ -50,7 +50,7 @@ class Rectangle:
         """define perimeter method, evaluate rectangle perimeter"""
         return (self.__width + self.__height) * 2
 
-    def __str__ (self):
+    def __str__(self):
         """
         define special __str__ method for printing a rectangle
         when print(self) is called
@@ -62,8 +62,8 @@ class Rectangle:
             for j in range(self.__height):
                 for i in range(self.__width):
                     pattern += '#'
-                    if j is not (self.__height - 1):
-                        pattern += '\n'
+                if j is not (self.__height - 1):
+                    pattern += '\n'
             return pattern
 
     def __repr__(self):
