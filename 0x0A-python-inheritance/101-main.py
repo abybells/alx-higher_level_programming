@@ -14,10 +14,3 @@ try:
     print(a.name)
 except Exception as e:
     print("[{}] {}".format(e.__class__.__name__, e))
-
-try:
-    a = 123456
-    add_attribute(a, "name", "Bob")
-    print(a.name)
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
