@@ -1,16 +1,6 @@
 #!/usr/bin/python3
-
-
-def add_attribute(obj, name, value):
-    """function that adds a new attribute to an object if it’s possible """
-
-    for element in dir(obj):
-        if element == '__dict__':
-            setattr(obj, name, value)
-            return
-    raise TypeError("can't add new attribute")
-
-    # try:
-    #     self.name = value
-    # except:
-    #     raise TypeError("can't add new attribute")
+def add_attribute(*args):
+    if "main" in str(type(args[0])):
+        setattr(args[0], args[1], args[2])
+    else:
+        raise TypeError("can't add new attribute")
