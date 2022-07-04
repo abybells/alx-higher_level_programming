@@ -1,84 +1,107 @@
-============
-1-my_list subclass
-==================
+0t.txt module
+====================
 
-usage
-=====
+Importing the class from the module:
+>>> MyList = __import__("1-my_list").MyList
 
-import the function:
->>> My_list = __import__("1-my_list"). MyList
-
-Test for subclass:
->>> issubclass(MyList, list)
+Checking for module docstring:
+>>> m = __import__("1-my_list").__doc__
+>>> len(m) > 1
 True
 
-Test for isinstance:
->>> my_list = MyList()
->>> isinstance(my_list, list)
+Checking for class docstring:
+>>> c = __import__("1-my_list").MyList.__doc__
+>>> len(c) > 1
 True
 
-Test empty list:
+Checking for method docstring
+        >>> f = __import__("1-my_list").MyList.print_sorted.__doc__
+        >>> len(f) > 1
+        True
+
+Checking given test case
 >>> my_list = MyList()
->> my_list
-[]
+
+>>> my_list.append(1)
+
+>>> my_list.append(4)
+
+>>> my_list.append(2)
+
+>>> my_list.append(3)
+
+>>> my_list.append(5)
+
 >>> print(my_list)
-[]
->>> my_list.print_sorted()
-[]
+[1, 4, 2, 3, 5]
 
-if a number of integers are passed through:
->>> my_list = MyList()
->>> my_list.append(1)
->>> my_list.append(4)
->>> my_list.append(2)
->>> my_list.append(3)
->>> my_list.append(5)
 >>> my_list.print_sorted()
 [1, 2, 3, 4, 5]
 
-if all ints are the same:
->>> my_list = MyList()
->>> my_list.append(6)
->>> my_list.append(6)
->>> my_list.append(6)
->>> my_list.append(6)
->>> my_list.append(6)
->>> my_list.print_sorted()
-[6, 6, 6, 6, 6]
+>>> print(my_list)
+[1, 4, 2, 3, 5]
 
-if an argument is passed:
->>> my_list = MyList()
->>> my_list.append(6)
->>> my_list.append(4)
->>> my_list.append(2)
->>> my_list.append(6)
->>> my_list.append(4)
-my_list.print_sorted(5)
+Checking empty object
+>>> obj1 = MyList()
+
+>>> print(obj1)
+[]
+
+>>> obj1.print_sorted()
+[]
+
+Checking negative values
+>>> obj2 = MyList()
+
+>>> obj2.append(-1)
+
+>>> obj2.append(0)
+
+>>> obj2.append(-233)
+
+>>> obj2.append(-9)
+
+>>> print(obj2)
+[-1, 0, -233, -9]
+
+>>> obj2.print_sorted()
+[-233, -9, -1, 0]
+
+Checking NULL object
+>>> obj3 = MyList()
+
+>>> obj3.append(NULL)
 Traceback (most recent call last):
-	  ...
-TypeError: print_sorted() takes 1 positional argument but 2 were given
+    ...
+NameError: name 'NULL' is not defined
 
-if a list is empty:
->>> my_list = MyList()
->>> my_list.print_sorted()
+>>> print(obj3)
 []
 
-if a list contains negative numbers:
->>> my_list = MyList()
->>> my_list.append(1)
->>> my_list.append(-4)
->>> my_list.append(2)
->>> my_list.append(-3)
->>> my_list.append(5)
->>> my_list.print_sorted()
-[-4, -3, 1, 2, 5]
+>>> obj3.print_sorted()
+[]
 
-if a list is already ordered:
->>> my_list = MyList()
->>> my_list.append(1)
->>> my_list.append(2)
->>> my_list.append(3)
->>> my_list.append(4)
->>> my_list.append(5)
->>> my_lisy.print_sorted()
-[1, 2, 3, 4, 5]
+Checking NaN object
+>>> obj4 = MyList()
+
+>>> obj4.append(NaN)
+Traceback (most recent call last):
+    ...
+NameError: name 'NaN' is not defined
+
+>>> print(obj4)
+[]
+
+>>> obj4.print_sorted()
+[]
+
+Checking None object
+>>> obj5 = MyList()
+
+>>> obj5.append(None)
+
+>>> print(obj5)
+[None]
+
+>>> obj5.print_sorted()
+[None]
