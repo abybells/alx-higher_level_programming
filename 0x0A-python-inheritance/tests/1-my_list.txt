@@ -1,142 +1,84 @@
-The ``1-my_list`` module
-============================
+============
+1-my_list subclass
+==================
 
-Using ``MyList``
----------------------
+usage
+=====
 
-This is a text file in reStructuredText format. Refer to the
-following documentation for details on proper guidelines:
-https://docs.python.org/3/library/doctest.html
-First import ``MyList`` from the ``1-my_list`` module:
+import the function:
+>>> My_list = __import__("1-my_list"). MyList
 
->>> MyList = __import__('1-my_list').MyList
-
-Command line call for Doctest:
-python3 -m doctest -v ./tests/1-my_list.txt | tail -2
-
-Now use it:
-
-Base case
----------
-
->>> my_list = MyList()
-
->>> type(my_list)
-<class '1-my_list.MyList'>
-
->>> type(MyList())
-<class '1-my_list.MyList'>
-
+Test for subclass:
 >>> issubclass(MyList, list)
 True
 
->>> 'print_sorted' in dir(MyList)
+Test for isinstance:
+>>> my_list = MyList()
+>>> isinstance(my_list, list)
 True
 
->>> 'print_sorted' in dir(my_list)
-True
-
+Test empty list:
+>>> my_list = MyList()
+>> my_list
+[]
 >>> print(my_list)
 []
->>> my_list += [1, 4, 2, 3, 5]
->>> print(my_list)
-[1, 4, 2, 3, 5]
-
 >>> my_list.print_sorted()
-[1, 2, 3, 4, 5]
-
-Other cases
------------
-
-Test for negative numbers:
-
->>> my_list = MyList([1, 4, 2, 3, 5])
->>> print(my_list)
-[1, 4, 2, 3, 5]
->>> my_list += [-1]
->>> print(my_list)
-[1, 4, 2, 3, 5, -1]
->>> my_list.print_sorted()
-[-1, 1, 2, 3, 4, 5]
-
-Test for zero:
-
->>> my_list = MyList([1, 4, 2, 3, 5])
->>> print(my_list)
-[1, 4, 2, 3, 5]
->>> my_list += [0]
->>> print(my_list)
-[1, 4, 2, 3, 5, 0]
->>> my_list.print_sorted()
-[0, 1, 2, 3, 4, 5]
-
-Test for empty list:
-
->>> my_list = MyList([])
->>> print(my_list)
 []
->>> my_list += [1]
->>> print(my_list)
-[1]
->>> my_list.print_sorted()
-[1]
 
-Test for list of one:
-
->>> my_list = MyList([1])
->>> print(my_list)
-[1]
->>> my_list += [2]
->>> print(my_list)
-[1, 2]
->>> my_list.print_sorted()
-[1, 2]
-
-Test for list of one with append():
-
->>> my_list = MyList([1])
->>> print(my_list)
-[1]
+if a number of integers are passed through:
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(4)
 >>> my_list.append(2)
->>> print(my_list)
-[1, 2]
+>>> my_list.append(3)
+>>> my_list.append(5)
 >>> my_list.print_sorted()
-[1, 2]
+[1, 2, 3, 4, 5]
 
-Test that print_sorted() returns a new list
--------------------------------------------
-
+if all ints are the same:
 >>> my_list = MyList()
->>> print(my_list)
-[]
->>> my_list += [1, 4, 2, 3, 5]
->>> print(my_list)
-[1, 4, 2, 3, 5]
+>>> my_list.append(6)
+>>> my_list.append(6)
+>>> my_list.append(6)
+>>> my_list.append(6)
+>>> my_list.append(6)
 >>> my_list.print_sorted()
-[1, 2, 3, 4, 5]
->>> my_list.print_sorted() == my_list
-[1, 2, 3, 4, 5]
-False
+[6, 6, 6, 6, 6]
 
-my_list is already sorted:
-
+if an argument is passed:
 >>> my_list = MyList()
->>> print(my_list)
-[]
->>> my_list += [1, 2, 3, 4, 5]
->>> print(my_list)
-[1, 2, 3, 4, 5]
->>> my_list.print_sorted()
-[1, 2, 3, 4, 5]
->>> my_list.print_sorted() == my_list
-[1, 2, 3, 4, 5]
-False
+>>> my_list.append(6)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(6)
+>>> my_list.append(4)
+my_list.print_sorted(5)
+Traceback (most recent call last):
+	  ...
+TypeError: print_sorted() takes 1 positional argument but 2 were given
 
-Test with print_sorted() on empty list
---------------------------------------
-
+if a list is empty:
 >>> my_list = MyList()
->>> print(my_list)
-[]
 >>> my_list.print_sorted()
 []
+
+if a list contains negative numbers:
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(-4)
+>>> my_list.append(2)
+>>> my_list.append(-3)
+>>> my_list.append(5)
+>>> my_list.print_sorted()
+[-4, -3, 1, 2, 5]
+
+if a list is already ordered:
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(4)
+>>> my_list.append(5)
+>>> my_lisy.print_sorted()
+[1, 2, 3, 4, 5]
