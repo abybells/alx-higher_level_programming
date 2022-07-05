@@ -21,7 +21,7 @@ def add_items():
     for i in range(1, len(sys.argv)):
         j_list.append(sys.argv[i])
 
-    save_to_json_file(python_list, 'add_item.json')
+    save_to_json_file(j_list, 'add_item.json')
 
 if __name__ == '__main__':
     add_items()
