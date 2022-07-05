@@ -1,28 +1,25 @@
 #!/usr/bin/python3
-"""
-12-pascal_triangle module
-"""
+'''module derives a pascal triangle up to a given number'''
 
 
 def pascal_triangle(n):
-    """
-    function that that returns a list of lists of integers representing
-    the Pascal’s triangle of n
-    """
-    triangle = [[0 for k in range(l + 1)] for l in range(n)]
-#    print(triangle)
-#    matrix = [[0 for k in range(n)] for l in range(n)]
-#    print(matrix)
+    '''creates and return a nested list that make up a pascal triangle up to ni
+    Args:
+        n(int): number of levels for the pascal triangle
+    Return:
+        matrix: list of list that defines a pascal triangle of n levels
+    '''
+    triangle = []
     if n <= 0:
         return triangle
-    else:
-        for i in range(n):
-            for j in range(i + 1):
-                if (j is 0 or j is i):
-                    triangle[i][j] = 1
-#                    triangle[i][j] = matrix[i][j]
-                else:
-                    triangle[i][j] = triangle[i - 1][j - 1] +\
-                                     triangle[i - 1][j]
-#                    triangle[i][j] = matrix[i][j]
-        return triangle
+
+    triangle.append([1])
+    for i in range(n - 1):
+        curr_level = [1]
+        for j in range(len(triangle[i])):
+            if j < len(triangle[i]) - 1:
+                curr_sum = triangle[i][j] + triangle[i][j+1]
+                curr_level.append(curr_sum)
+        curr_level.append(1)
+        triangle.append(curr_level)
+    return triangle
