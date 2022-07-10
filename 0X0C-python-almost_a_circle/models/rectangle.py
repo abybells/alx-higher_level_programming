@@ -105,7 +105,7 @@ class Rectangle(Base):
         (from class.function call)
         """
         pattern = ""
-        if self.width is 0 or self.height is 0:
+        if self.width == 0 or self.height == 0:
             print(pattern)
         else:
             for k in range(self.y):
