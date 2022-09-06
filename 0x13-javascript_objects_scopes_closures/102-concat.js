@@ -1,16 +1,18 @@
 #!/usr/bin/node
+
 const fs = require('fs');
 
-let fileA = process.argv[2];
-let fileB = process.argv[3];
-let fileC = process.argv[4];
+const myArray = process.argv.slice(2);
 
-try {
-  [fileA, fileB].forEach((f) => {
-    fs.readFileSync(f).toString().trim().split('\n').forEach((line) => {
-      fs.appendFileSync(fileC, line.toString() + '\n');
-    });
+fs.readFile(myArray[0], (err, data) => {
+  if (err) throw err;
+  fs.appendFile(myArray[2], data, (err) => {
+    if (err) throw err;
   });
-} catch (err) {
-  console.log(err);
-}
+});
+fs.readFile(myArray[1], (err, data) => {
+  if (err) throw err;
+  fs.appendFile(myArray[2], data, (err) => {
+    if (err) throw err;
+  });
+});
