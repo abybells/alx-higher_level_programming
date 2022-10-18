@@ -6,8 +6,8 @@
 
 const args = process.argv;
 const URLrequest = args[2];
-const req = require('request');
-req(URLrequest, function (error, response, body) {
+const request = require('request');
+request(URLrequest, function (error, response, body) {
   if (error) {
     console.log('error:', error);
     } else {
