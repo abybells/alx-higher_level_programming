@@ -1,14 +1,13 @@
 #!/usr/bin/node
-// prints the number of movies
-// where the character Wedge Antilles is present
+// prints the number of movies where the character Wedge Antilles is present
 
-const arg = process.argv;
-let URLreq = arg[2];
+const args = process.argv;
+const URLreq = args[2];
 const request = require('request');
 
 request(URLreq, function (error, response, body) {
   if (error) {
-    console.log('error:', error);
+    console.log(error);
   } else {
     let listFilms = (JSON.parse(body).results);
     let movieCount = 0;
