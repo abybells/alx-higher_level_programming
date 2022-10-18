@@ -17,7 +17,7 @@ request(URLreq, function (error, response, body) {
       for (let j = 0; j < chars.length; j++) {
         let check18 = chars[j].endsWith('18/');
         if (check18) {
-          count++;
+          movieCount++;
         }
       }
     }
