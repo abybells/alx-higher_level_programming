@@ -4,11 +4,11 @@
 // print status code as: code: <status code>
 // Use module request
 
-const arg = process.argv;
-const URLrequest = arg[2];
+const args = process.argv;
+const requestURL = args[2];
 const request = require('request');
 
-request(URLrequest, function (error, response, body) {
+request(requestURL, function (error, response, body) {
   if (error) {
     console.log('error:', error);
     } else {
