@@ -7,6 +7,9 @@
 const args = process.argv;
 const URLrequest = args[2];
 const req = require('request');
-req.get(URLrequest).on('response', function (response) {
-  console.log('code: ${response.statusCode}');
+req(URLrequest, function (error, response, body) {
+  if (error) {
+    console.log('error:', error);
+  } else {
+    console.log('code:', response && response.statusCode);
 });
