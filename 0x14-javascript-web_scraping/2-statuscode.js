@@ -4,14 +4,10 @@
 // print status code as: code: <status code>
 // Use module request
 
-const args = process.argv;
-const requestURL = args[2];
+const arg = process.argv;
+const requestURL = arg[2];
 const request = require('request');
 
-request(requestURL, function (error, response, body) {
-  if (error) {
-    console.log('error:', error);
-    } else {
-      console.log('code:', response && response.statusCode);
-      }
+req.get(requestURL).on('response', function (response) {
+  console.log(`code: ${response.statusCode}`);
 });
