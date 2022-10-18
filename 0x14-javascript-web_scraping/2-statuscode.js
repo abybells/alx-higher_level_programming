@@ -4,9 +4,10 @@
 // print status code as: code: <status code>
 // Use module request
 
-const args = process.argv;
-const URLrequest = args[2];
+const arg = process.argv;
+const URLrequest = arg[2];
 const request = require('request');
+
 request(URLrequest, function (error, response, body) {
   if (error) {
     console.log('error:', error);
