@@ -9,7 +9,7 @@ const request = require('request');
 
 request(url, function (error, response, body) {
   if (error) {
-    console.error('error:' error);
+    console.error(error);
   } else {
     console.log(JSON.parse(body).title);
   }
